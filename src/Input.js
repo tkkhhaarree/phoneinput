@@ -14,7 +14,9 @@ class Input extends Component {
             width: "400px",
             height: "48px",
             fontSize: 16
-         }
+         },
+         inputborder: "#E1E7EC",
+         inputborderwidth: "0px"
       };
       this.onChange = this.onChange.bind(this);
    }
@@ -43,11 +45,13 @@ class Input extends Component {
                   width: "400px",
                   height: "48px",
                   fontSize: 16,
-                  backgroundColor: "red",
+                  backgroundColor: "#DC3330",
                   color: "#FFFFFF"
                }
             });
+            this.setState({ inputborder: "#DC3330" });
             this.setState({ buttontext: "Enter Valid Mobile Number" });
+            this.setState({ inputborderwidth: "1px" });
          }
       } else {
          this.setState({ disabled: true });
@@ -61,6 +65,7 @@ class Input extends Component {
             }
          });
          this.setState({ buttontext: "Send OTP" });
+         this.setState({ inputborder: "#E1E7EC" });
       }
    }
 
@@ -72,27 +77,35 @@ class Input extends Component {
                value="+91"
                style={{
                   backgroundColor: "#E1E7EC",
-                  width: "28px",
+                  width: "30px",
                   height: "48px",
                   borderRight: "none",
                   color: "#8895A7",
-                  fontSize: 16
+                  fontSize: 16,
+                  boxShadow: "inset 0 2 5 rgba(0,0,0,0.2)",
+                  borderColor: this.state.inputborder,
+                  borderWidth: this.state.inputborderwidth
                }}
                readOnly
             />
             <input
                style={{
                   backgroundColor: "#E1E7EC",
-                  width: "372px",
+                  width: "370px",
                   height: "48px",
                   borderLeft: "none",
                   color: "#8895A7",
-                  fontSize: 16
+                  fontSize: 16,
+                  boxShadow: "inset 0 2 5 rgba(0,0,0,0.2)",
+                  borderColor: this.state.inputborder,
+                  borderWidth: this.state.inputborderwidth
                }}
                name="phone"
                id="phone"
                value={this.state.phone}
                onChange={this.onChange}
+               placeholder="Enter 10 digit mobile number"
+               maxLength="10"
             />
             <br />
             <br />
